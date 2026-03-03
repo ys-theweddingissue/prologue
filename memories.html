@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPECIAL MEMORIES | K & M</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Noto+Serif+JP:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-color: #f9f7f2; --text-color: #4a4238; --accent-color: #a68b6d; --font-en: 'Lato', sans-serif; --font-jp: 'Noto Serif JP', serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-color); color: var(--text-color); font-family: var(--font-jp); text-align: center; }
+        
+        nav { position: fixed; top: 0; width: 100%; padding: 25px; display: flex; align-items: center; z-index: 2000; }
+        .menu-trigger { font-family: var(--font-en); font-size: 1.1rem; letter-spacing: 0.2em; cursor: pointer; background: none; border: none; color: var(--text-color); display: flex; align-items: center; gap: 10px; }
+        .menu-icon { width: 24px; height: 14px; position: relative; }
+        .menu-icon span { position: absolute; width: 100%; height: 1px; background: var(--text-color); left: 0; }
+        .menu-icon span:nth-child(1) { top: 0; } .menu-icon span:nth-child(2) { bottom: 0; }
+        .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-color); z-index: 3000; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: 0.5s; }
+        .menu-overlay.active { opacity: 1; visibility: visible; }
+        .nav-list { list-style: none; text-align: center; } .nav-list li { margin: 25px 0; } .nav-list a { text-decoration: none; color: var(--text-color); font-family: var(--font-en); font-size: 1.4rem; }
+
+        .container { padding: 150px 30px; }
+        .en-title { font-family: var(--font-en); font-size: 2.2rem; font-weight: 300; margin-bottom: 40px; }
+
+        .login-box { background: #fff; padding: 40px 20px; border-radius: 4px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .login-box p { font-size: 0.85rem; margin-bottom: 20px; color: #666; }
+        input { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 2px; margin-bottom: 20px; font-family: var(--font-en); text-align: center; letter-spacing: 0.2em; }
+        .btn { display: block; width: 100%; padding: 15px; background: var(--text-color); color: #fff; text-decoration: none; font-size: 0.9rem; letter-spacing: 0.1em; cursor: pointer; border: none; }
+
+        .secret-content { display: none; margin-top: 40px; animation: fadeIn 1s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .memory-photo { width: 100%; border-radius: 4px; margin-bottom: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .personal-message { text-align: left; background: #fff; padding: 30px; line-height: 2.2; font-size: 0.95rem; border-left: 3px solid var(--accent-color); }
+        .music-label { margin-top: 30px; font-size: 0.7rem; color: #999; font-family: var(--font-en); }
+    </style>
+</head>
+<body>
+    <nav>
+        <button class="menu-trigger" onclick="toggleMenu()"><div class="menu-icon"><span></span><span></span></div><span>K & M</span></button>
+    </nav>
+    <div class="menu-overlay" id="menuOverlay">
+        <div style="position:absolute; top:25px; left:25px;" onclick="toggleMenu()">CLOSE —</div>
+        <ul class="nav-list">
+            <li><a href="index.html">HOME<span>ホーム</span></a></li>
+            <li><a href="prologue.html">PROLOGUE<span>感謝の気持ち</span></a></li>
+            <li><a href="profile.html">PROFILE<span>新郎新婦紹介</span></a></li>
+            <li><a href="story.html">OUR STORY<span>二人の歩み</span></a></li>
+            <li><a href="seating.html">SEATING GUIDE<span>お席案内</span></a></li>
+            <li><a href="cuisine.html">CUISINE<span>お料理</span></a></li>
+            <li><a href="memories.html">SPECIAL MEMORIES<span>あなたへの手紙</span></a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h1 class="en-title">Special Memories</h1>
+        
+        <div id="loginSection" class="login-box">
+            <p>お手元にある席次表のコードを<br>入力してください。</p>
+            <input type="text" id="passCode" placeholder="CODE">
+            <button class="btn" onclick="checkCode()">OPEN THE MESSAGE</button>
+            <p style="font-size:0.6rem; margin-top:20px;">※例: 1234 でデモが見れます</p>
+        </div>
+
+        <div id="secretContent" class="secret-content">
+            <img src="https://images.unsplash.com/photo-1525130413817-d45c1d127c42?auto=format&fit=crop&q=80&w=800" class="memory-photo" alt="Memory with Guest">
+            <div class="personal-message">
+                〇〇へ<br><br>
+                今日は来てくれて本当にありがとう。大学時代のあの時、君がいてくれたから今の自分があると思っています。これからも、ずっと変わらず親友でいてください。
+            </div>
+            <div class="music-label">♪ Now Playing: Amazing Grace (Piano Ver.)</div>
+        </div>
+    </div>
+
+    <script>
+        function checkCode() {
+            const code = document.getElementById('passCode').value;
+            if (code === "1234") {
+                document.getElementById('loginSection').style.display = 'none';
+                document.getElementById('secretContent').style.display = 'block';
+            } else {
+                alert("コードが正しくありません。");
+            }
+        }
+        function toggleMenu() { document.getElementById('menuOverlay').classList.toggle('active'); }
+    </script>
+</body>
+</html>
