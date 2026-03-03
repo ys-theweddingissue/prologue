@@ -1,1 +1,181 @@
-#aaa
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story | Wedding Special</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Noto+Serif+JP:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f9f7f2;
+            --text-color: #4a4238;
+            --accent-color: #a68b6d;
+            --font-en: 'Lato', sans-serif;
+            --font-jp: 'Noto Serif JP', serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: var(--bg-color);
+            background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png');
+            color: var(--text-color);
+            font-family: var(--font-jp);
+            line-height: 1.8;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 30px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(249, 247, 242, 0.9);
+        }
+        .logo { font-family: var(--font-en); font-size: 1.2rem; letter-spacing: 0.2em; text-transform: uppercase; }
+        .nav-links { display: flex; list-style: none; gap: 30px; }
+        .nav-links a { text-decoration: none; color: var(--text-color); font-family: var(--font-en); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 150px 20px 100px;
+        }
+
+        .section-header {
+            margin-bottom: 100px;
+            text-align: center;
+        }
+        .section-header h2 {
+            font-family: var(--font-en);
+            font-size: 4rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+        .section-header p { font-size: 0.8rem; letter-spacing: 0.3em; color: var(--accent-color); }
+
+        .story-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 150px;
+            gap: 80px;
+        }
+        .story-item:nth-child(even) { flex-direction: row-reverse; }
+
+        .story-img-box {
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+        }
+        .story-img-box img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: filter 1s ease;
+        }
+        .story-item:hover img { filter: grayscale(0%); }
+
+        .story-text-box {
+            flex: 1;
+            padding: 40px;
+        }
+        .story-date {
+            font-family: var(--font-en);
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            display: block;
+        }
+        .story-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        .story-desc {
+            font-size: 0.95rem;
+            color: #666;
+            text-align: justify;
+        }
+
+        .fade-in { opacity: 0; transform: translateY(40px); transition: 1.2s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 900px) {
+            .story-item, .story-item:nth-child(even) { flex-direction: column; gap: 40px; }
+            .story-img-box img { height: 400px; }
+            .section-header h2 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">K & M</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="story.html">Story</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="memories.html">Memories</a></li>
+            <li><a href="message.html">Message</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <header class="section-header fade-in">
+            <h2>Our Story</h2>
+            <p>二人の歩んだ軌跡</p>
+        </header>
+
+        <section class="story-item fade-in">
+            <div class="story-img-box">
+                <img src="https://images.unsplash.com/photo-1516589174184-c685266d7bd4?auto=format&fit=crop&q=80&w=1000" alt="Meeting">
+            </div>
+            <div class="story-text-box">
+                <span class="story-date">Spring, 2021</span>
+                <h3 class="story-title">The First Meeting</h3>
+                <p class="story-desc">
+                    桜の舞い散る季節、共通の友人を介して出会った二人。最初は少し緊張していたけれど、音楽の趣味が驚くほど似ていることに気づいた瞬間、会話が止まらなくなりました。
+                </p>
+            </div>
+        </section>
+
+        <section class="story-item fade-in">
+            <div class="story-img-box">
+                <img src="https://images.unsplash.com/photo-1464692805480-a69dfaafdb0d?auto=format&fit=crop&q=80&w=1000" alt="Dates">
+            </div>
+            <div class="story-text-box">
+                <span class="story-date">Summer, 2023</span>
+                <h3 class="story-title">Deepening Bonds</h3>
+                <p class="story-desc">
+                    週末のたびに訪れた海辺や、静かな森のキャンプ。自然の中で過ごす時間は、お互いの素直な気持ちを育んでいきました。何気ない日常が、何よりもかけがえのない宝物に変わっていった時期です。
+                </p>
+            </div>
+        </section>
+
+        <section class="story-item fade-in">
+            <div class="story-img-box">
+                <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1000" alt="Proposal">
+            </div>
+            <div class="story-text-box">
+                <span class="story-date">Winter, 2024</span>
+                <h3 class="story-title">The Proposal</h3>
+                <p class="story-desc">
+                    星空の下、二人の思い出の場所で。言葉にならないほどの感動と、一生を共に歩む決意を交わしました。新しい家族としての第一歩が、ここから始まりました。
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
