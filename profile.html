@@ -1,20 +1,146 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>プロフィール</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body { font-family: sans-serif; text-align: center; padding: 50px; background:#fafafa; }
-    a { display:block; margin:10px; text-decoration:none; color:#333; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | Wedding Special</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Noto+Serif+JP:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f9f7f2;
+            --text-color: #4a4238;
+            --accent-color: #a68b6d;
+            --font-en: 'Lato', sans-serif;
+            --font-jp: 'Noto Serif JP', serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: var(--bg-color);
+            background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png');
+            color: var(--text-color);
+            font-family: var(--font-jp);
+            line-height: 1.8;
+        }
+
+        nav {
+            position: fixed;
+            top: 0; width: 100%; padding: 30px 50px;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; background: rgba(249, 247, 242, 0.9);
+        }
+        .logo { font-family: var(--font-en); font-size: 1.2rem; letter-spacing: 0.2em; text-transform: uppercase; }
+        .nav-links { display: flex; list-style: none; gap: 30px; }
+        .nav-links a { text-decoration: none; color: var(--text-color); font-family: var(--font-en); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 150px 20px; }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+        }
+
+        .profile-card { text-align: center; }
+        .profile-photo {
+            width: 100%;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+        .profile-photo img {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: grayscale(100%); transition: 1s;
+        }
+        .profile-card:hover img { filter: grayscale(0%); }
+
+        .role { font-family: var(--font-en); font-size: 0.8rem; letter-spacing: 0.4em; color: var(--accent-color); text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .name { font-size: 2rem; margin-bottom: 30px; border-bottom: 1px solid #ddd; padding-bottom: 10px; display: inline-block; }
+        
+        .details { text-align: left; max-width: 300px; margin: 0 auto; font-size: 0.9rem; }
+        .detail-row { display: flex; margin-bottom: 15px; }
+        .detail-label { width: 100px; color: #999; }
+        .detail-value { flex: 1; }
+
+        .fade-in { opacity: 0; transform: translateY(40px); transition: 1.2s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .profile-grid { grid-template-columns: 1fr; gap: 80px; }
+        }
+    </style>
 </head>
 <body>
+    <nav>
+        <div class="logo">K & M</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="story.html">Story</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="memories.html">Memories</a></li>
+            <li><a href="message.html">Message</a></li>
+        </ul>
+    </nav>
 
-<h1>プロフィール</h1>
-<p>ここに自己紹介を書きます。</p>
+    <div class="container">
+        <div class="profile-grid">
+            <!-- Groom -->
+            <div class="profile-card fade-in">
+                <div class="profile-photo">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800" alt="Groom">
+                </div>
+                <span class="role">Groom</span>
+                <h2 class="name">Kenta Tanaka</h2>
+                <div class="details">
+                    <div class="detail-row">
+                        <span class="detail-label">Birth</span>
+                        <span class="detail-value">1992.05.15</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Hobby</span>
+                        <span class="detail-value">Photography, Cooking</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Message</span>
+                        <span class="detail-value">笑顔の絶えない家庭を築きたいです。</span>
+                    </div>
+                </div>
+            </div>
 
-<a href="index.html">トップへ戻る</a>
+            <!-- Bride -->
+            <div class="profile-card fade-in">
+                <div class="profile-photo">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800" alt="Bride">
+                </div>
+                <span class="role">Bride</span>
+                <h2 class="name">Misaki Sato</h2>
+                <div class="details">
+                    <div class="detail-row">
+                        <span class="detail-label">Birth</span>
+                        <span class="detail-value">1994.09.28</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Hobby</span>
+                        <span class="detail-value">Traveling, Yoga</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Message</span>
+                        <span class="detail-value">二人で世界中を旅するのが夢です。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+    </script>
 </body>
 </html>
