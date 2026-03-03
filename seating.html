@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEATING GUIDE | K & M</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Noto+Serif+JP:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-color: #f9f7f2; --text-color: #4a4238; --accent-color: #a68b6d; --font-en: 'Lato', sans-serif; --font-jp: 'Noto Serif JP', serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-color); color: var(--text-color); font-family: var(--font-jp); text-align: center; }
+        
+        nav { position: fixed; top: 0; width: 100%; padding: 25px; display: flex; align-items: center; z-index: 2000; }
+        .menu-trigger { font-family: var(--font-en); font-size: 1.1rem; letter-spacing: 0.2em; cursor: pointer; background: none; border: none; color: var(--text-color); display: flex; align-items: center; gap: 10px; }
+        .menu-icon { width: 24px; height: 14px; position: relative; }
+        .menu-icon span { position: absolute; width: 100%; height: 1px; background: var(--text-color); left: 0; }
+        .menu-icon span:nth-child(1) { top: 0; } .menu-icon span:nth-child(2) { bottom: 0; }
+        .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-color); z-index: 3000; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: 0.5s; }
+        .menu-overlay.active { opacity: 1; visibility: visible; }
+        .nav-list { list-style: none; text-align: center; } .nav-list li { margin: 25px 0; } .nav-list a { text-decoration: none; color: var(--text-color); font-family: var(--font-en); font-size: 1.4rem; }
+        .nav-list span { display: block; font-size: 0.6rem; font-family: var(--font-jp); color: var(--accent-color); }
+
+        .container { padding: 100px 20px 60px; }
+        .en-title { font-family: var(--font-en); font-size: 2.2rem; font-weight: 300; margin-bottom: 30px; }
+
+        /* 座席図イメージ */
+        .seating-chart { margin-bottom: 50px; background: #fff; padding: 20px; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .main-table { width: 80px; height: 30px; border: 1px solid var(--accent-color); margin: 0 auto 30px; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; }
+        .tables-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .table-circle { width: 60px; height: 60px; border: 1px solid #ddd; border-radius: 50%; margin: 0 auto; display: flex; align-items: center; justify-content: center; font-family: var(--font-en); }
+
+        .guest-intro { margin-top: 50px; }
+        .guest-card { background: #fff; margin-bottom: 20px; padding: 15px; display: flex; align-items: center; gap: 15px; text-align: left; }
+        .guest-thumb { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; }
+        .guest-info h4 { font-size: 0.9rem; }
+        .guest-info p { font-size: 0.75rem; color: #666; line-height: 1.4; }
+    </style>
+</head>
+<body>
+    <nav>
+        <button class="menu-trigger" onclick="toggleMenu()"><div class="menu-icon"><span></span><span></span></div><span>K & M</span></button>
+    </nav>
+    <div class="menu-overlay" id="menuOverlay">
+        <div style="position:absolute; top:25px; left:25px;" onclick="toggleMenu()">CLOSE —</div>
+        <ul class="nav-list">
+            <li><a href="index.html">HOME<span>ホーム</span></a></li>
+            <li><a href="prologue.html">PROLOGUE<span>感謝の気持ち</span></a></li>
+            <li><a href="profile.html">PROFILE<span>新郎新婦紹介</span></a></li>
+            <li><a href="story.html">OUR STORY<span>二人の歩み</span></a></li>
+            <li><a href="seating.html">SEATING GUIDE<span>お席案内</span></a></li>
+            <li><a href="cuisine.html">CUISINE<span>お料理</span></a></li>
+            <li><a href="memories.html">SPECIAL MEMORIES<span>あなたへの手紙</span></a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h1 class="en-title">Seating Guide</h1>
+        
+        <div class="seating-chart">
+            <div class="main-table">MAIN</div>
+            <div class="tables-grid">
+                <div><div class="table-circle">A</div><p style="font-size:0.6rem;margin-top:5px;">Friends</p></div>
+                <div><div class="table-circle">B</div><p style="font-size:0.6rem;margin-top:5px;">Friends</p></div>
+                <div><div class="table-circle">C</div><p style="font-size:0.6rem;margin-top:5px;">Family</p></div>
+                <div><div class="table-circle">D</div><p style="font-size:0.6rem;margin-top:5px;">Family</p></div>
+            </div>
+        </div>
+
+        <div class="guest-intro">
+            <h3 style="font-size:1.1rem; margin-bottom:20px;">Guest Introduction</h3>
+            <div class="guest-card">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200" class="guest-thumb" alt="Guest 1">
+                <div class="guest-info">
+                    <h4>佐藤 直樹 様</h4>
+                    <p>新郎の大学時代からの親友。今日の主賓挨拶をお願いしました。頼れるアニキ分です。</p>
+                </div>
+            </div>
+            <div class="guest-card">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200" class="guest-thumb" alt="Guest 2">
+                <div class="guest-info">
+                    <h4>田中 絵里香 様</h4>
+                    <p>新婦の高校時代の親友。いつも笑顔で相談に乗ってくれる、妹のような存在です。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>function toggleMenu() { document.getElementById('menuOverlay').classList.toggle('active'); }</script>
+</body>
+</html>
